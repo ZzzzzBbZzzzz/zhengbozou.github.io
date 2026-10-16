@@ -47,12 +47,12 @@ table {
 /**************************************************/
 
 #main {
-    width: 960px;
+    max-width: 960px;
     margin: 0px auto;
 }
 
 #body{
-    font-family: roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #54575b;
     /*color: #191e3f;*/
 }
@@ -119,9 +119,18 @@ h1 {
 }
 
 #profile img {
-    width: 220px;
+    width: 260px;
     border-radius: 10px;
     margin-bottom: 18px;
+}
+
+#profile-pic #profile-contact {
+    font-size: 13px;
+    line-height: 22px;
+}
+
+#profile-intro {
+    overflow: hidden; /* keep the bio in its own column instead of wrapping under the photo */
 }
 
 #profile-name {
@@ -133,6 +142,43 @@ h1 {
 
 #profile p {
     margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+    #header {
+        height: 16px;
+        padding-top: 0;
+    }
+
+    #profile {
+        padding: 24px 16px 10px 16px;
+    }
+
+    /* flatten the photo column so the contact lines can move below the bio */
+    #profile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #profile-pic {
+        display: contents;
+    }
+
+    #profile img {
+        width: 180px;
+        align-self: center;
+    }
+
+    #profile-pic #profile-contact {
+        order: 1;
+        text-align: left;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    #profile-name {
+        text-align: center;
+    }
 }
 
 /**************************************************/
